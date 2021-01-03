@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>GDIndex code builder</title>
+	<title>GDIndex 代码快速生成</title>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,21 +12,21 @@
 	</script>
 </head>
 
-<body>
+<body style="background-image: url('https://api.lyiqk.cn/api'); background-position: center center; background-repeat: no-repeat; background-attachment: fixed; background-size: cover; background-color: #464646;">
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-md-8">
 				<div class="jumbotron mb-0">
-					<h1 class="display-4">GDIndex Code Builder</h1>
+					<h1 class="display-4">GDIndex 代码快速生成</h1>
 					<p class="lead">
-						This is a simple website to help you get started with
-						<a href="https://github.com/maple3142/GDIndex" target="_blank">GDIndex</a>. <br /><span style="font-size:14px;"
-                >The source code of this website can be found
+						这是一个帮助你快速构建
+						<a href="https://github.com/Jacky-lei1/GDIndex" target="_blank">GDIndex</a>的页面. <br /><span style="font-size:14px;"
+                >你可以在
                 <a
-                  href="https://repl.it/@maple3142/gdindex-code-builder#index.js"
+                  href="https://repl.it/@Jackylei1/gdindex-code-builder#index.js"
                   target="_blank"
-                  >here</a
-                >, so no need to worry about whether it is trustworthy.</span
+                  >这里</a
+                >找到源码, 所以你不用担心网站是否安全</span
               >
             </p>
           </div>
@@ -36,16 +36,15 @@
         <div class="col-md-8">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">1. Get Authorization Code</h5>
+              <h5 class="card-title">1. 获取授权代码</h5>
               <p class="card-text">
-                Click the following link and authorize, then copy the code you
-                get.
+                单击此处开始授权，并复制授权代码
               </p>
               <a
                 class="btn btn-primary"
                 target="_blank"
                 href="https://accounts.google.com/o/oauth2/auth?client_id=202264815644.apps.googleusercontent.com&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&response_type=code&access_type=offline&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive&approval_prompt=auto"
-                >Click me</a
+                >点我</a
               >
             </div>
           </div>
@@ -55,10 +54,10 @@
         <div class="col-md-8">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">2. Fill the form</h5>
+              <h5 class="card-title">2. 填写这个表格</h5>
               <form action="/getcode" method="POST" id="form">
                 <div class="form-group">
-                  <label for="auth_code">Authorization Code</label>
+                  <label for="auth_code">授权代码</label>
                   <input
                     type="text"
                     class="form-control"
@@ -67,7 +66,7 @@
                   />
                 </div>
                 <div class="form-group">
-                  <label for="default_root_id">Default Root ID</label>
+                  <label for="default_root_id">默认文件路径</label>
                   <input
                     type="text"
                     class="form-control"
@@ -76,7 +75,7 @@
                     value="root"
                   />
                   <small class="form-text text-muted"
-                    >If you don't know what is this, just leave it alone.</small
+                    >如果你不知道这是啥，你就别管它</small
                   >
                 </div>
                 <div class="form-group form-check">
@@ -87,12 +86,12 @@
                     id="auth"
                   />
                   <label class="form-check-label" for="auth"
-                    >Enable authentication</label
+                    >开启认证</label
                   >
                 </div>
                 <div class="form-group">
                   <label for="user"
-                    >Username (require authentication to work)</label
+                    >用户名 (需要勾选上面的开启认证功能)</label
                   >
                   <input
                     type="text"
@@ -103,7 +102,7 @@
                 </div>
                 <div class="form-group">
                   <label for="pass"
-                    >Password (require authentication to work)</label
+                    >密码 (需要勾选上面的开启认证功能)</label
                   >
                   <input
                     type="password"
@@ -120,10 +119,10 @@
                     id="upload"
                   />
                   <label class="form-check-label" for="upload"
-                    >Enable file uploading</label
+                    >允许文件上传</label
                   >
                 </div>
-                <button type="submit" class="btn btn-primary">Get Code</button>
+                <button type="submit" class="btn btn-primary">获取代码</button>
               </form>
             </div>
           </div>
@@ -148,16 +147,16 @@
         <div class="col-md-8">
           <div class="card" id="success" style="display:none;">
             <div class="card-body">
-              <h5 class="card-title">3. Finished</h5>
+              <h5 class="card-title">3. 完成</h5>
               <p class="card-text">
-                Copy the following code and go to
+                复制下面的代码访问
                 <a href="https://workers.cloudflare.com/" target="_blank"
                   >CloudFlare Workers</a
                 >
-                to paste the code.
+                粘贴进去.
               </p>
               <button class="btn btn-primary" data-clipboard-target="#code">
-                Copy the code to clipboard
+                复制到剪贴板
               </button>
               <textarea
                 class="form-control mt-3"
@@ -168,7 +167,7 @@
           </div>
           <div class="card" id="failed" style="display:none;">
             <div class="card-body">
-              <h5 class="card-title">3. Failed</h5>
+              <h5 class="card-title">3. 失败</h5>
               <p class="card-text" id="failed_message"></p>
             </div>
           </div>
